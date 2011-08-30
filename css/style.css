@@ -1,0 +1,15 @@
+
+body {
+	padding: 20px;
+	font-weight: bold;
+	font-family: "Helvetica";
+	font-size: 26px;
+	line-height: 30px;
+	background-color: #111;
+	color: #222;
+}
+
+
+.current {
+	color: #f00;
+}
