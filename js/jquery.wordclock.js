@@ -19,9 +19,8 @@
             $.extend(settings, options);
         }
 
-
         $.each(settings.quanta, function(key, quantum) {
-            switch (quantum) {
+            switch (quantum.toLowerCase()) {
                 case 'days'     : day_names(settings);     break;
                 case 'months'   : month_names(settings);   break;
                 case 'ordinals' : day_ordinals(settings);  break;
@@ -31,10 +30,10 @@
             }
         });
 
-        // TODO: Refactor, so we only ever have one timer. Keeps the clocks in sync.
-        window.setInterval(function() {
-            paint_timer()
-        }, 1000);
+        // We only want one single paint timer running at a time
+        // Could bog down browsers with too many, or get out of sync
+        clearInterval(paint_timer);
+        var paint_timer = window.setInterval("paint_timer()", 1000);
 
     };
 
@@ -47,7 +46,7 @@ function paint_timer() {
     // Figure out what needs to be lit.
     var d = new Date();
 
-    // Light up the years
+    // Light up the date
     var wday = d.getDay(),
         mday = d.getDate() - 1, // JavaScript, Y NO ZERO INDEXED?
         mon  = d.getMonth();
@@ -56,8 +55,8 @@ function paint_timer() {
     $('.month'+mon).addClass('current');
     $('.ordinal'+mday).addClass('current');
 
-    // Light up the Time
-    var hour = d.getHours() % 12,
+    // Light up the time
+    var hour = d.getHours()   % 12,
         min  = d.getMinutes() % 60,
         sec  = d.getSeconds() % 60;
 
@@ -67,107 +66,92 @@ function paint_timer() {
 
     // Light up the connectors
     if (sec !== 0) {
-        $('.seconds_prefix li').addClass('current');
-        $('.seconds_postfix li').addClass('current');
+        $('.seconds_prefix span').addClass('current');
+        $('.seconds_postfix span').addClass('current');
     }
 }
 
 
 
 function day_names(settings) {
-    var ul = $('<ul/>').appendTo(settings.container).addClass('days');
+    var p = $('<p/>').appendTo(settings.container).addClass('days');
 
     $.each(settings.days, function(key, value) {
-        $('<li/>').appendTo(ul).text(value).addClass('day'+key);
+        $('<span/>').appendTo(p).text(value+' ').addClass('day'+key);
     });
 }
 
 
 function month_names(settings) {
-    var ul = $('<ul/>').appendTo(settings.container).addClass('months');
+    var p = $('<p/>').appendTo(settings.container).addClass('months');
 
     $.each(settings.months, function(key, value) {
-        $('<li/>').appendTo(ul).text(value).addClass('month'+key);
+        $('<span/>').appendTo(p).text(value+' ').addClass('month'+key);
     });
 }
 
-
 function day_ordinals(settings) {
-    var ul = $('<ul/>').appendTo(settings.container).addClass('ordinals');
+    var p = $('<p/>').appendTo(settings.container).addClass('ordinals');
 
     $.each(settings.ordinals, function(key, value) {
-        $('<li/>').appendTo(ul).text(value).addClass('ordinal'+key);
+        $('<span/>').appendTo(p).text(value+' ').addClass('ordinal'+key);
     });
 }
 
 function hours(settings) {
-    var ul = $('<ul/>').appendTo(settings.container).addClass('hours');
+    var p = $('<p/>').appendTo(settings.container).addClass('hours');
 
     $.each(settings.numbers, function(key, value) {
         if (key > 0 && key <= 12) {
-            $('<li/>').appendTo(ul).text(value).addClass('hour'+key);
+            $('<span/>').appendTo(p).text(value+' ').addClass('hour'+key);
         }
     });
     
 }
 
 function minutes(settings) {
-    var ul = $('<ul/>').appendTo(settings.container).addClass('minutes');
+    var p = $('<p/>').appendTo(settings.container).addClass('minutes');
 
-    $('<li/>').appendTo(ul).text("O'Clock").addClass('minute0');
+    $('<span/>').appendTo(p).text("O'Clock ").addClass('minute0');
 
     $.each(settings.numbers, function(key, value) {
         if (key > 0 && key <= 9) {
-            $('<li/>').appendTo(ul).text("Oh‑"+value).addClass('minute'+key);
+            $('<span/>').appendTo(p).text("Oh‑"+value+' ').addClass('minute'+key);
         } else if (key > 0) {
-            $('<li/>').appendTo(ul).text(value).addClass('minute'+key);
+            $('<span/>').appendTo(p).text(value+' ').addClass('minute'+key);
         }
     });
 }
 
 function seconds(settings) {
+    var p = $('<p/>').appendTo(settings.container).addClass('seconds_prefix');
+    $('<span/>').appendTo(p).text('And ');
 
-    var ul = $('<ul/>').appendTo(settings.container).addClass('seconds_prefix');
-    $('<li/>').appendTo(ul).text('And');
-
-    var ul = $('<ul/>').appendTo(settings.container).addClass('seconds');
-    $('<li/>').appendTo(ul).text("Precisely").addClass('second0');
+    var p = $('<p/>').appendTo(settings.container).addClass('seconds');
+    $('<span/>').appendTo(p).text("Precisely ").addClass('second0');
 
     $.each(settings.numbers, function(key, value) {
         if (key > 0 && key <= 59) {
-            $('<li/>').appendTo(ul).text(value).addClass('second'+key);
+            $('<span/>').appendTo(p).text(value+' ').addClass('second'+key);
         }
     });
 
-    var ul = $('<ul/>').appendTo(settings.container).addClass('seconds_postfix');
-    $('<li/>').appendTo(ul).text('Seconds');
-
+    var p = $('<p/>').appendTo(settings.container).addClass('seconds_postfix');
+    $('<span/>').appendTo(p).text('Seconds ');
 }
 
 
-// (bother slide up one list item at a time)
-// vertical-slider
-// horizontal-slider
-// 
-// (wraps over multiple lines - like original screensaver - if you make it wide enough with CSS, it will be single-line)
-// block-text
-
-// datetime: 2012-01-01 - use this as the date, rather than the current time.
-// provide some text for countdowns Years, Months, Weeks, Days, Hours, Minutes & Seconds
-
-// quanta         : ['days', 'months', 'ordinals', 'hours', 'minutes', 'seconds'],
-
-// Can also pass the text array for easier translation
-
-
-
+// The style and direction settings are not done yet.
+// slider has the effect of moving the paragraph in the direction specified
+// block-text is the default, text flowing over multiple lines
+// giving a datetime will make it act like a countdown to that moment
 
 function default_settings() {
     return {
         style      : ['slider','block-text'],
         direction  : ['vertical', 'horizontal'],
         datetime   : '2012-01-01',
-        quanta     : ["Years", "Months", "Weeks", "Days", "Hours", "Minutes", "Seconds"],
+        quanta     : ["days", "months", "weeks", "ordinals", "hours", "minutes", "seconds", "years"],
         days       : ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"],
         months     : ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"],    
         numbers    : [
