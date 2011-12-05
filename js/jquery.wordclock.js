@@ -103,6 +103,8 @@ function hours(settings) {
 
     $.each(settings.numbers, function(key, value) {
         if (key > 0 && key <= 12) {
+            // 12 is hour zero, but must come after hour 11
+            if (key == 12) key = 0;
             $('<span/>').appendTo(p).text(value+' ').addClass('hour'+key);
         }
     });
