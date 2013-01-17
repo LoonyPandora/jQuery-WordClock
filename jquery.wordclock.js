@@ -1,6 +1,6 @@
 /*
  * jQuery WordClock
- * Version 0.9.1
+ * Version 0.9.2
  * https://github.com/LoonyPandora/jQuery-WordClock
  *
  * Make clocks using words instead of numbers
