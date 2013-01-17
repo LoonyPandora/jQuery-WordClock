@@ -8,7 +8,7 @@
     }, 
     "demo": "http://loonypandora.co.uk/jQuery-WordClock", 
     "dependencies": {
-        "jquery": ">=1.2"
+        "jquery": ">=1.4.3"
     }, 
     "description": "Make clocks using words instead of numbers", 
     "docs": "https://github.com/LoonyPandora/jQuery-WordClock/blob/master/README.markdown", 
@@ -37,6 +37,6 @@
         "type": "git", 
         "url": "git://github.com/LoonyPandora/jQuery-WordClock.git"
     }, 
-    "title": "jQuery WordClock", 
-    "version": "1.0.0"
+    "title": "WordClock", 
+    "version": "0.9.0"
 }
