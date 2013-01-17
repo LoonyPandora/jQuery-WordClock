@@ -1,9 +1,9 @@
 /*
  * jQuery WordClock
- * Version 0.0.1
+ * Version 0.9.0
  * https://github.com/LoonyPandora/jQuery-WordClock
  *
- * Makes clocks, that are words
+ * Make clocks using words instead of numbers
  * 
  * Copyright (c) 2011 James Aitken (loonypandora.co.uk)
  * Dual licensed under the MIT and GPL licenses.
@@ -12,7 +12,7 @@
 (function($){
 
 	$.fn.wordclock = function(options) {
-        var settings = default_settings();
+        var settings = defaultSettings();
         settings.container = this;
 
         if (options) { 
@@ -21,9 +21,9 @@
 
         $.each(settings.quanta, function(key, quantum) {
             switch (quantum.toLowerCase()) {
-                case 'days'     : day_names(settings);     break;
-                case 'months'   : month_names(settings);   break;
-                case 'ordinals' : day_ordinals(settings);  break;
+                case 'days'     : dayNames(settings);     break;
+                case 'months'   : monthNames(settings);   break;
+                case 'ordinals' : dayOrdinals(settings);  break;
                 case 'hours'    : hours(settings);         break;
                 case 'minutes'  : minutes(settings);       break;
                 case 'seconds'  : seconds(settings);       break;
@@ -32,15 +32,14 @@
 
         // We only want one single paint timer running at a time
         // Could bog down browsers with too many, or get out of sync
-        clearInterval(paint_timer);
-        var paint_timer = window.setInterval("paint_timer()", 1000);
-
+        clearInterval(paintTimer);
+        var paintTimer = window.setInterval("paintTimer()", 1000);
     };
 
 })(jQuery);
 
 
-function paint_timer() {
+function paintTimer() {
     $('.current').removeClass('current');
 
     // Figure out what needs to be lit.
@@ -71,9 +70,7 @@ function paint_timer() {
     }
 }
 
-
-
-function day_names(settings) {
+function dayNames(settings) {
     var p = $('<p/>').appendTo(settings.container).addClass('days');
 
     $.each(settings.days, function(key, value) {
@@ -81,8 +78,7 @@ function day_names(settings) {
     });
 }
 
-
-function month_names(settings) {
+function monthNames(settings) {
     var p = $('<p/>').appendTo(settings.container).addClass('months');
 
     $.each(settings.months, function(key, value) {
@@ -90,7 +86,7 @@ function month_names(settings) {
     });
 }
 
-function day_ordinals(settings) {
+function dayOrdinals(settings) {
     var p = $('<p/>').appendTo(settings.container).addClass('ordinals');
 
     $.each(settings.ordinals, function(key, value) {
@@ -118,7 +114,7 @@ function minutes(settings) {
 
     $.each(settings.numbers, function(key, value) {
         if (key > 0 && key <= 9) {
-            $('<span/>').appendTo(p).text("Oh‑"+value+' ').addClass('minute'+key);
+            $('<span/>').appendTo(p).text("Oh-"+value+' ').addClass('minute'+key);
         } else if (key > 0) {
             $('<span/>').appendTo(p).text(value+' ').addClass('minute'+key);
         }
@@ -147,12 +143,11 @@ function seconds(settings) {
 // slider has the effect of moving the paragraph in the direction specified
 // block-text is the default, text flowing over multiple lines
 // giving a datetime will make it act like a countdown to that moment
-
-function default_settings() {
+function defaultSettings() {
     return {
         style      : ['slider',   'block-text'],
         direction  : ['vertical', 'horizontal'],
-        datetime   : '2012-01-01',
+        datetime   : '2013-01-01',
         quanta     : [
             'days', 'months', 'weeks', 'ordinals', 'hours', 'minutes', 'seconds', 'years'
         ],
@@ -169,24 +164,23 @@ function default_settings() {
             'Five',           'Six',            'Seven',         'Eight',         'Nine',
             'Ten',            'Eleven',         'Twelve',        'Thirteen',      'Fourteen',
             'Fifteen',        'Sixteen',        'Seventeen',     'Eighteen',      'Nineteen',
-            'Twenty',         'Twenty‑One',     'Twenty‑Two',    'Twenty‑Three',  'Twenty‑Four',
-            'Twenty‑Five',    'Twenty‑Six',     'Twenty‑Seven',  'Twenty‑Eight',  'Twenty‑Nine',
-            'Thirty',         'Thirty‑One',     'Thirty‑Two',    'Thirty‑Three',  'Thirty‑Four',
-            'Thirty‑Five',    'Thirty‑Six',     'Thirty‑Seven',  'Thirty‑Eight',  'Thirty‑Nine',
-            'Fourty',         'Fourty‑One',     'Fourty‑Two',    'Fourty‑Three',  'Fourty‑Four',
-            'Fourty‑Five',    'Fourty‑Six',     'Fourty‑Seven',  'Fourty‑Eight',  'Fourty‑Nine',
-            'Fifty',          'Fifty‑One',      'Fifty‑Two',     'Fifty‑Three',   'Fifty‑Four',
-            'Fifty‑Five',     'Fifty‑Six',      'Fifty‑Seven',   'Fifty‑Eight',   'Fifty‑Nine'
+            'Twenty',         'Twenty-One',     'Twenty-Two',    'Twenty-Three',  'Twenty-Four',
+            'Twenty-Five',    'Twenty-Six',     'Twenty-Seven',  'Twenty-Eight',  'Twenty-Nine',
+            'Thirty',         'Thirty-One',     'Thirty-Two',    'Thirty-Three',  'Thirty-Four',
+            'Thirty-Five',    'Thirty-Six',     'Thirty-Seven',  'Thirty-Eight',  'Thirty-Nine',
+            'Fourty',         'Fourty-One',     'Fourty-Two',    'Fourty-Three',  'Fourty-Four',
+            'Fourty-Five',    'Fourty-Six',     'Fourty-Seven',  'Fourty-Eight',  'Fourty-Nine',
+            'Fifty',          'Fifty-One',      'Fifty-Two',     'Fifty-Three',   'Fifty-Four',
+            'Fifty-Five',     'Fifty-Six',      'Fifty-Seven',   'Fifty-Eight',   'Fifty-Nine'
         ],
         ordinals : [
             'First',          'Second',         'Third',         'Fourth',        'Fifth',
             'Sixth',          'Seventh',        'Eight',         'Ninth',         'Tenth',
             'Eleventh',       'Twelfth',        'Thirteenth',    'Fourteenth',    'Fifteenth',
             'Sixteenth',      'Seventeenth',    'Eighteenth',    'Nineteenth',    'Twentieth',
-            'Twenty‑First',   'Twenty‑Second',  'Twenty‑Third',  'Twenty‑Fourth', 'Twenty‑Fifth',
-            'Twenty‑Sixth',   'Twenty‑Seventh', 'Twenty‑Eight',  'Twenty‑Ninth',  'Thirtieth',
-            'Thirty‑First'
+            'Twenty-First',   'Twenty-Second',  'Twenty-Third',  'Twenty-Fourth', 'Twenty-Fifth',
+            'Twenty-Sixth',   'Twenty-Seventh', 'Twenty-Eight',  'Twenty-Ninth',  'Thirtieth',
+            'Thirty-First'
         ]
     };
 }
-
