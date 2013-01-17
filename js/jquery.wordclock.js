@@ -118,7 +118,7 @@ function minutes(settings) {
 
     $.each(settings.numbers, function(key, value) {
         if (key > 0 && key <= 9) {
-            $('<span/>').appendTo(p).text("Oh‑"+value+' ').addClass('minute'+key);
+            $('<span/>').appendTo(p).text("Oh-"+value+' ').addClass('minute'+key);
         } else if (key > 0) {
             $('<span/>').appendTo(p).text(value+' ').addClass('minute'+key);
         }
@@ -169,23 +169,23 @@ function default_settings() {
             'Five',           'Six',            'Seven',         'Eight',         'Nine',
             'Ten',            'Eleven',         'Twelve',        'Thirteen',      'Fourteen',
             'Fifteen',        'Sixteen',        'Seventeen',     'Eighteen',      'Nineteen',
-            'Twenty',         'Twenty‑One',     'Twenty‑Two',    'Twenty‑Three',  'Twenty‑Four',
-            'Twenty‑Five',    'Twenty‑Six',     'Twenty‑Seven',  'Twenty‑Eight',  'Twenty‑Nine',
-            'Thirty',         'Thirty‑One',     'Thirty‑Two',    'Thirty‑Three',  'Thirty‑Four',
-            'Thirty‑Five',    'Thirty‑Six',     'Thirty‑Seven',  'Thirty‑Eight',  'Thirty‑Nine',
-            'Fourty',         'Fourty‑One',     'Fourty‑Two',    'Fourty‑Three',  'Fourty‑Four',
-            'Fourty‑Five',    'Fourty‑Six',     'Fourty‑Seven',  'Fourty‑Eight',  'Fourty‑Nine',
-            'Fifty',          'Fifty‑One',      'Fifty‑Two',     'Fifty‑Three',   'Fifty‑Four',
-            'Fifty‑Five',     'Fifty‑Six',      'Fifty‑Seven',   'Fifty‑Eight',   'Fifty‑Nine'
+            'Twenty',         'Twenty-One',     'Twenty-Two',    'Twenty-Three',  'Twenty-Four',
+            'Twenty-Five',    'Twenty-Six',     'Twenty-Seven',  'Twenty-Eight',  'Twenty-Nine',
+            'Thirty',         'Thirty-One',     'Thirty-Two',    'Thirty-Three',  'Thirty-Four',
+            'Thirty-Five',    'Thirty-Six',     'Thirty-Seven',  'Thirty-Eight',  'Thirty-Nine',
+            'Fourty',         'Fourty-One',     'Fourty-Two',    'Fourty-Three',  'Fourty-Four',
+            'Fourty-Five',    'Fourty-Six',     'Fourty-Seven',  'Fourty-Eight',  'Fourty-Nine',
+            'Fifty',          'Fifty-One',      'Fifty-Two',     'Fifty-Three',   'Fifty-Four',
+            'Fifty-Five',     'Fifty-Six',      'Fifty-Seven',   'Fifty-Eight',   'Fifty-Nine'
         ],
         ordinals : [
             'First',          'Second',         'Third',         'Fourth',        'Fifth',
             'Sixth',          'Seventh',        'Eight',         'Ninth',         'Tenth',
             'Eleventh',       'Twelfth',        'Thirteenth',    'Fourteenth',    'Fifteenth',
             'Sixteenth',      'Seventeenth',    'Eighteenth',    'Nineteenth',    'Twentieth',
-            'Twenty‑First',   'Twenty‑Second',  'Twenty‑Third',  'Twenty‑Fourth', 'Twenty‑Fifth',
-            'Twenty‑Sixth',   'Twenty‑Seventh', 'Twenty‑Eight',  'Twenty‑Ninth',  'Thirtieth',
-            'Thirty‑First'
+            'Twenty-First',   'Twenty-Second',  'Twenty-Third',  'Twenty-Fourth', 'Twenty-Fifth',
+            'Twenty-Sixth',   'Twenty-Seventh', 'Twenty-Eight',  'Twenty-Ninth',  'Thirtieth',
+            'Thirty-First'
         ]
     };
 }
