@@ -12,7 +12,7 @@
 (function($){
 
 	$.fn.wordclock = function(options) {
-        var settings = default_settings();
+        var settings = defaultSettings();
         settings.container = this;
 
         if (options) { 
@@ -21,9 +21,9 @@
 
         $.each(settings.quanta, function(key, quantum) {
             switch (quantum.toLowerCase()) {
-                case 'days'     : day_names(settings);     break;
-                case 'months'   : month_names(settings);   break;
-                case 'ordinals' : day_ordinals(settings);  break;
+                case 'days'     : dayNames(settings);     break;
+                case 'months'   : monthNames(settings);   break;
+                case 'ordinals' : dayOrdinals(settings);  break;
                 case 'hours'    : hours(settings);         break;
                 case 'minutes'  : minutes(settings);       break;
                 case 'seconds'  : seconds(settings);       break;
@@ -32,14 +32,14 @@
 
         // We only want one single paint timer running at a time
         // Could bog down browsers with too many, or get out of sync
-        clearInterval(paint_timer);
-        var paint_timer = window.setInterval("paint_timer()", 1000);
+        clearInterval(paintTimer);
+        var paintTimer = window.setInterval("paintTimer()", 1000);
     };
 
 })(jQuery);
 
 
-function paint_timer() {
+function paintTimer() {
     $('.current').removeClass('current');
 
     // Figure out what needs to be lit.
@@ -70,7 +70,7 @@ function paint_timer() {
     }
 }
 
-function day_names(settings) {
+function dayNames(settings) {
     var p = $('<p/>').appendTo(settings.container).addClass('days');
 
     $.each(settings.days, function(key, value) {
@@ -78,7 +78,7 @@ function day_names(settings) {
     });
 }
 
-function month_names(settings) {
+function monthNames(settings) {
     var p = $('<p/>').appendTo(settings.container).addClass('months');
 
     $.each(settings.months, function(key, value) {
@@ -86,7 +86,7 @@ function month_names(settings) {
     });
 }
 
-function day_ordinals(settings) {
+function dayOrdinals(settings) {
     var p = $('<p/>').appendTo(settings.container).addClass('ordinals');
 
     $.each(settings.ordinals, function(key, value) {
@@ -143,11 +143,11 @@ function seconds(settings) {
 // slider has the effect of moving the paragraph in the direction specified
 // block-text is the default, text flowing over multiple lines
 // giving a datetime will make it act like a countdown to that moment
-function default_settings() {
+function defaultSettings() {
     return {
         style      : ['slider',   'block-text'],
         direction  : ['vertical', 'horizontal'],
-        datetime   : '2012-01-01',
+        datetime   : '2013-01-01',
         quanta     : [
             'days', 'months', 'weeks', 'ordinals', 'hours', 'minutes', 'seconds', 'years'
         ],
