@@ -1,6 +1,6 @@
 # jQuery WordClock
 
-Have you ever wanted to have a clock or timer - but using words instead of boring old numerical digits?
+Have you ever wanted to have a clock or timer - but using words instead of boring old numbers?
 
 Well, this is the plugin for you! Check out the [Demo](http://loonypandora.co.uk/jQuery-WordClock/), and see for yourself.
 
