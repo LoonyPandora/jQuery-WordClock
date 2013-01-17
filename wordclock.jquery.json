@@ -1,0 +1,41 @@
+{
+  "name": "WordClock",
+  "title": "jQuery WordClock",
+  "description": "Make clocks using words instead of numbers",
+  "version": "0.9.0",
+  "download": "https://github.com/LoonyPandora/jQuery-WordClock/blob/master/js/jquery.wordclock.js",
+  "homepage": "https://github.com/LoonyPandora/jQuery-WordClock/",
+  "docs": "https://github.com/LoonyPandora/jQuery-WordClock/blob/master/README",
+  "demo": "http://loonypandora.co.uk/jQuery-WordClock/",
+  "bugs": {
+    "url": "https://github.com/LoonyPandora/jQuery-WordClock/issues"
+  },
+  "author": {
+    "name": "James Aitken",
+    "url": "http://loonypandora.co.uk"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/LoonyPandora/jQuery-WordClock.git"
+  },
+  "licenses": [
+    {
+      "type": "MIT",
+      "url": "http://opensource.org/licenses/MIT"
+    },
+    {
+      "type": "GPLv2",
+      "url": "http://opensource.org/licenses/gpl-2.0"
+    }
+  ],
+  "dependencies": {
+    "jquery": ">=1.6"
+  },
+  "keywords": [
+    "word",
+    "clock",
+    "wordclock",
+    "time",
+    "visualization"
+  ]
+}

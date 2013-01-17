@@ -3,7 +3,7 @@
  * Version 0.9.0
  * https://github.com/LoonyPandora/jQuery-WordClock
  *
- * Makes clocks, from words, using jQuery
+ * Make clocks using words instead of numbers
  * 
  * Copyright (c) 2011 James Aitken (loonypandora.co.uk)
  * Dual licensed under the MIT and GPL licenses.
