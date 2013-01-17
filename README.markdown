@@ -1,5 +1,9 @@
 # jQuery WordClock
 
+Have you ever wanted to have a clock or timer - but using words instead of boring old numerical digits?
+
+Well, this is the plugin for you! Check out the [Demo](http://loonypandora.co.uk/jQuery-WordClock/), and see for yourself.
+
 
 ## Getting Started
 
@@ -17,7 +21,15 @@ The contents of that selector will be replaced with a clock made from words.
 <div id="my-clock"></div>
 ```
 
+
 ## Dependencies
 
 - jQuery (tested with v1.2.0 - v1.9.0)
 
+
+## The Future
+
+- Add better, more in depth documentation
+- Add some default CSS styles so the first run experience is better
+- Add a countdown mode, instead of constantly counting up
+- Add different transition styles for a bit of variation
