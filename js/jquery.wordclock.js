@@ -1,9 +1,9 @@
 /*
  * jQuery WordClock
- * Version 0.0.1
+ * Version 0.9.0
  * https://github.com/LoonyPandora/jQuery-WordClock
  *
- * Makes clocks, that are words
+ * Makes clocks, from words, using jQuery
  * 
  * Copyright (c) 2011 James Aitken (loonypandora.co.uk)
  * Dual licensed under the MIT and GPL licenses.
@@ -34,7 +34,6 @@
         // Could bog down browsers with too many, or get out of sync
         clearInterval(paint_timer);
         var paint_timer = window.setInterval("paint_timer()", 1000);
-
     };
 
 })(jQuery);
@@ -71,8 +70,6 @@ function paint_timer() {
     }
 }
 
-
-
 function day_names(settings) {
     var p = $('<p/>').appendTo(settings.container).addClass('days');
 
@@ -80,7 +77,6 @@ function day_names(settings) {
         $('<span/>').appendTo(p).text(value+' ').addClass('day'+key);
     });
 }
-
 
 function month_names(settings) {
     var p = $('<p/>').appendTo(settings.container).addClass('months');
@@ -147,7 +143,6 @@ function seconds(settings) {
 // slider has the effect of moving the paragraph in the direction specified
 // block-text is the default, text flowing over multiple lines
 // giving a datetime will make it act like a countdown to that moment
-
 function default_settings() {
     return {
         style      : ['slider',   'block-text'],
@@ -189,4 +184,3 @@ function default_settings() {
         ]
     };
 }
-
