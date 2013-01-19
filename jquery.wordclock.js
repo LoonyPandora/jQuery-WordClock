@@ -24,9 +24,9 @@
                 case 'days'     : dayNames(settings);     break;
                 case 'months'   : monthNames(settings);   break;
                 case 'ordinals' : dayOrdinals(settings);  break;
-                case 'hours'    : hours(settings);         break;
-                case 'minutes'  : minutes(settings);       break;
-                case 'seconds'  : seconds(settings);       break;
+                case 'hours'    : hours(settings);        break;
+                case 'minutes'  : minutes(settings);      break;
+                case 'seconds'  : seconds(settings);      break;
             }
         });
 
