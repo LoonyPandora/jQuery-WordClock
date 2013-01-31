@@ -33,68 +33,29 @@ p {
 
 
 .animated span {
-    display:  inline-block;
-    position: relative;
-
-    -webkit-animation-duration: 4s;
-       -moz-animation-duration: 4s;
-         -o-animation-duration: 4s;
-            animation-duration: 4s;
-
-
 	-webkit-animation-iteration-count: infinite;
-	   -moz-animation-iteration-count: infinite;
-	     -o-animation-iteration-count: infinite;
-	        animation-iteration-count: infinite;
+	-webkit-animation-name: highlight;
+    -webkit-animation-duration: 4s;
 }
 
 span.second1 {
-	-webkit-animation-name: "second1";
-	   -moz-animation-name: "second1";
-	     -o-animation-name: "second1";
-	        animation-name: "second1";
+    -webkit-animation-delay: 0s;
 }
 
 span.second2 {
-	-webkit-animation-name: "second2";
-	   -moz-animation-name: "second2";
-	     -o-animation-name: "second2";
-	        animation-name: "second2";
+    -webkit-animation-delay: 1s;
 }
 
 span.second3 {
-	-webkit-animation-name: "second3";
-	   -moz-animation-name: "second3";
-	     -o-animation-name: "second3";
-	        animation-name: "second3";
+    -webkit-animation-delay: 2s;
 }
 
 span.second4 {
-	-webkit-animation-name: "second4";
-	   -moz-animation-name: "second4";
-	     -o-animation-name: "second4";
-	        animation-name: "second4";
+    -webkit-animation-delay: 3s;
 }
 
 
-@-webkit-keyframes second1 {
-    0%, 25%   { color: #f33; }
-    26%, 100% { color: #666; }
+@-webkit-keyframes highlight {
+    0%, 100%        { color: #f33; }
+    10%, 50%, 90%   { color: #666; }
 }
-
-@-webkit-keyframes second2 {
-    26%, 50%           { color: #f33; }
-    0%, 25%, 51%, 100% { color: #666; }
-}
-
-@-webkit-keyframes second3 {
-    51%, 75%           { color: #f33; }
-    0%, 50%, 76%, 100% { color: #666; }
-}
-
-@-webkit-keyframes second4 {
-    76%, 100%           { color: #f33; }
-    0%, 75%, 100%  { color: #666; }
-}
-
-
