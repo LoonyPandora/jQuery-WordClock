@@ -168,8 +168,8 @@ function defaultSettings() {
             'Twenty-Five',    'Twenty-Six',     'Twenty-Seven',  'Twenty-Eight',  'Twenty-Nine',
             'Thirty',         'Thirty-One',     'Thirty-Two',    'Thirty-Three',  'Thirty-Four',
             'Thirty-Five',    'Thirty-Six',     'Thirty-Seven',  'Thirty-Eight',  'Thirty-Nine',
-            'Fourty',         'Fourty-One',     'Fourty-Two',    'Fourty-Three',  'Fourty-Four',
-            'Fourty-Five',    'Fourty-Six',     'Fourty-Seven',  'Fourty-Eight',  'Fourty-Nine',
+            'Forty',          'Forty-One',      'Forty-Two',     'Forty-Three',   'Forty-Four',
+            'Forty-Five',     'Forty-Six',      'Forty-Seven',   'Forty-Eight',   'Forty-Nine',
             'Fifty',          'Fifty-One',      'Fifty-Two',     'Fifty-Three',   'Fifty-Four',
             'Fifty-Five',     'Fifty-Six',      'Fifty-Seven',   'Fifty-Eight',   'Fifty-Nine'
         ],
